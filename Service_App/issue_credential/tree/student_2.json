@@ -1,0 +1,24 @@
+{
+  "credentialTree": [
+    {
+      "name": "openbadges 101.json",
+      "targetHash": "0x00ce0749703d9279d77fe56ae02a6ef158c7ba30f3306670f7f0895726cccb2f45",
+      "child": []
+    },
+    {
+      "name": "openbadges 202.json",
+      "targetHash": "0x001d1956d1472314fb1e9cf6defcf695952261994d07bb095265418d44631ad5f7",
+      "child": []
+    },
+    {
+      "name": "blockcerts.json",
+      "targetHash": "0x002212ca12cae6e97f67e955f2aca4f12713101369b43d6f78c44aa724c291189f",
+      "child": []
+    },
+    {
+      "name": "clr.json",
+      "targetHash": "0x00c5f44baf9770c207a070d54532119f35149bf0c5511ccbc195863093bb3e210d",
+      "child": []
+    }
+  ]
+}
