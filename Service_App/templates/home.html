@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <div class="intro-heading">Learning Credential Service</div>
+        <div class='div-bts' align="center">
+        <!--issue credential-->
+          <div class='div-bt'>
+          <form style="display:none" action="{% url 'issue_credential' %}" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <input type="file" name="issueCredential" value="">
+      </form>
+        <a href="javascript:;" class="upload_issue" style="font-size:22px;margin-left: 200px;color:yellow">Issuing Credential</a>
+        </div>
+
+        <!--select credential-->
+          <div class='div-bt'>
+          <form style="display:none" action="{% url 'upload_credential' %}" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <input type="file" name="selectCredential" value="">
+      </form>
+      <a href="javascript:;" class="upload_select" style="font-size:22px;margin-left: 100px;color:yellow">Select Partial Credential</a>
+        </div>
+
+         <!--verify credential-->
+           <div class='div-bt'>
+          <form style="display:none" action="{% url 'verify_credential' %}" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <input type="file" name="verifyCredential" value="">
+      </form>
+      <a href="javascript:;" class="upload_verify" style="font-size:22px;margin-left: 10px;color:yellow">Verify Credential</a>
+        </div>
+
+
+        </div>
+
+      </div>
+    </header>
+
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+  </body>
+      <style>
+        .div-bt {
+            text-align: center;
+            width:400px;
+            height: 100px;
+            float:left;
+            display: inline-block;padding-left: 5px;padding-right: 5px; margin-left: 10px;margin-right: 5px;
+        }
+        .div-bts{
+          text-align: center
+        }
+      </style>
+
+      <script>
+        <!--issue credential-->
+        $('.upload_issue').click(function(){
+        　　$(this).prev('form').find('[name="issueCredential"]').trigger('click');
+        });
+
+        $('[name="issueCredential"]').change(function(){
+        　　if($(this).val()){
+        　　　　$('.upload_issue').addClass('disabled');
+        　　　　$(this).parent().submit();
+        　　}
+        });
+
+         <!--select credential-->
+        $('.upload_select').click(function(){
+        　　$(this).prev('form').find('[name="selectCredential"]').trigger('click');
+        });
+
+        $('[name="selectCredential"]').change(function(){
+        　　if($(this).val()){
+        　　　　$('.upload_select').addClass('disabled');
+        　　　　$(this).parent().submit();
+        　　}
+        });
+
+         <!--verify credential-->
+        $('.upload_verify').click(function(){
+        　　$(this).prev('form').find('[name="verifyCredential"]').trigger('click');
+        });
+
+        $('[name="verifyCredential"]').change(function(){
+        　　if($(this).val()){
+        　　　　$('.upload_verify').addClass('disabled');
+        　　　　$(this).parent().submit();
+        　　}
+        });
+
+
+    </script>
+</html>
+{% endblock %}
+

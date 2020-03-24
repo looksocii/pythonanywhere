@@ -1,0 +1,13 @@
+{
+  "name":"King Mongkut's Institute of Technology Ladkrabang",
+  "url":"http://credentialservice.pythonanywhere.com/issuer.json",
+  "email":"helpcenter@kmitl.ac.th",
+  "revocationList":"http://www.kmitl.ac.th/revocation.json",
+  "addressList": [
+    {
+      "address": "mtmixin9kfZXRMaPfbeS9gHxC1nVMwudtR",
+      "created": "2019-10-11T17:30:52:350416Z",
+      "revoked": ""
+    }
+  ]
+}
