@@ -1,0 +1,69 @@
+{% extends "nav.html" %}
+{% load static %}
+{% block sidebar %}
+    <div class="container-fluid ml-0 pl-0">
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="side-bar col-3 ">
+                        <div class="card mt-3 w-100 ml-3 bg-dark">
+                            <div class="card-body">
+                                <h5 class="navbar-brand text-light">{{ store.store_name }}<br>ที่ตั้ง : {{ aper.aper_loc }}<br>ราคาที่ : {{ aper.aper_price }} บาท/เดือน</h5>
+                                {% if perms.management.change_cost %}
+                                  <a href="{% url 'edit_expenses' store.store_id %}"><button class="btn btn-4 btn-block btn-warning mb-2">Edit expenses and bills</button></a>
+                                {% endif %}
+                                {% if perms.management.add_cost %}
+                                  <a href="{% url 'add_expenses' store.store_id %}"><button class="btn btn-4 btn-block btn-warning">Add expenses and bills</button></a>
+                                {% endif %}
+                            </div>
+                        <img src="{{ store.store_pic.url }}" class="card-img-bottom h-500px">
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="row mt-3">
+                          <div class="col-sm ">
+                            <table class="table table-bordered">
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">วันที่สร้างบิล</th>
+                                    <td>{{ cost.date }}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">ค่าไฟ</th>
+                                    <td>{{ cost.electric_bill }}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">ค่าน้ำ</th>
+                                    <td>{{ cost.water_bill }}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">ค่าเช่าพื้นที่</th>
+                                    <td>{{ cost.rent_fee }}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">ค่าซ่อมเเซม</th>
+                                    <td>{{ cost.repair_fee }}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">ค่าประกัน</th>
+                                    <td>{{ cost.insurance_fee }}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">ค่าใช้จ่ายอื่นๆ</th>
+                                    <td>{{ cost.other_fee }}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">รวมค่าใช้จ่ายทั้งหมด</th>
+                                    <td>{{ cost_total }} บาท</td>
+                                  </tr>
+                                </tbody>
+                              </table >
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>   <!-- main row  -->
+    </div> <!--container-->
+{% endblock sidebar %}

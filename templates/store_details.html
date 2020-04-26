@@ -1,0 +1,51 @@
+{% extends 'nav.html' %}
+{% block sidebar %}
+        <div class="row m-3">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-4 p-5 bg-secondary text-white">
+                        <h2>{{ store.store_name }}</h2>
+                        <h4>เบอร์โทรร้านค้า : {{ store.phone }}</h4><br>
+                        <a href="{% url 'edit_store' store.store_id %}" class="btn btn-warning btn-lg btn-block">Edit Store details</a><br>
+                        <a href="{% url 'remove_store' store.store_id %}" class="btn btn-warning btn-lg btn-block">Remove store</a>
+                    </div>
+                    <div class="col-7 p-5 ml-5 bg-secondary text-white">
+                        <img class=" aperture rounded img-fluid" src="{{ store.store_pic.url }}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row mt-4">
+                    <div class="col-3">
+                        <h4>รหัสร้าน : {{ store.store_id }}</h4>
+                    </div>
+                    <div class="col-3">
+                        <h4>สาขา : {{ store.branch }}</h4>
+                    </div>
+                    <div class="col-3">
+                        {% if cost_total %}
+                            <h4>ค่าใช้จ่ายทั้งหมด : {{ cost_total }}</h4>
+                        {% else %}
+                            <h4>ค่าใช้จ่ายทั้งหมด : {{ store.cost_total }}</h4>
+                        {% endif %}
+                    </div>
+                    <div class="col-3">
+                        <h4>ชื่อผู้จัดการร้านค้า : {{ store.manage_manag_id.manag_fname }} {{ store.manage_manag_id.manag_lname }}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row mt-4">
+                    <div class="col-3">
+                        <h4>ชื่อบริษัท : {{ store.company_company_id.company_name }}</h4>
+                    </div>
+                    <div class="col-3">
+                        <h4>รายการซ่อมแซม : {{ store.repaired }}</h4>
+                    </div>
+                    <div class="col-3">
+                        <h4>หมายเหตุ : {{ store.other_notes }}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock sidebar %}

@@ -1,0 +1,61 @@
+{% extends "nav.html" %}
+{% load static %}
+{% block sidebar %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-5 mt-3 p-5">
+            <h3 class="mx-10">{{ store.store_name }}</h3>
+            <p class="mx-9 mt-5">เบอร์โทรร้าน : {{ store.phone }}</p>
+        </div>
+        <div class="col-7">
+            <img class=" aperture rounded img-fluid" src="{{ store.store_pic.url }}">
+        </div>
+    </div>
+
+    <div class="row form">
+        <div class="form-group col-1">
+            <div class="row justify-content-end pr-1 mb-3">
+                <label for="inputPassword" class="input">รหัสร้าน</label>
+            </div>
+            <div class="row justify-content-end pr-1 mb-3">
+                <label for="inputPassword" class="input">ชื่อสาขาร้าน</label>
+            </div>
+        </div>
+        <div class="form-group col-1 ml-auto">
+            <div class="row mb-3">
+                <p class="text-muted">{{ store.store_id }}</p>
+            </div>
+            <div class="row mb-3">
+                <p class="text-muted">{{ store.branch }}</p>
+            </div>
+        </div>
+        <div class="form-group col-1">
+            <div class="row justify-content-end pr-1 mb-3">
+                <label for="inputPassword" class="input">ชื่อผู้จัดการร้านค้า</label>
+            </div>
+            <div class="row justify-content-end pr-1 mb-3">
+                <label for="inputPassword" class="input">ชื่อบริษัท</label>
+            </div>
+        </div>
+        <div class="form-group col-1 ml-auto">
+            <div class="row mb-3">
+                <p class="text-muted">{{ store.manage_manag_id.manag_fname }} {{ store.manage_manag_id.manag_lname }}</p>
+            </div>
+            <div class="row mb-3">
+                <p class="text-muted">{{ store.company_company_id.company_name }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-4">
+        </div>
+        <div class="col-4">
+        </div>
+        <div class="col-4">
+            {% if cost != None and store.company_company_id.account_acc_id.id == request.user.id %}
+                <a href="{% url 'expenses_details' store.store_id %}" class="btn btn-primary mb-3">View Expenses and Bill</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock sidebar %}

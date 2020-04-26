@@ -1,0 +1,43 @@
+{% extends "nav.html" %}
+{% load static %}
+{% block sidebar %}
+<form action="{% url 'add_manager' aperture_id %}" method="POST">
+    {% csrf_token %}
+    <div class="container text-center">
+        <h1 class="mt-5">Complete your manager information</h1>
+        <h5 class="mt-5">ข้อมูลผู้จัดการร้านค้า</h5>
+        <div class="row form">
+            <div class="form-group col-5">
+                <div class="row justify-content-end mr-5 mb-3">
+                    <label for="inputPassword" class="input" >ชื่อผู้จัดการร้านค้า</label>
+                </div>
+                <div class="row justify-content-end mr-5 mb-3">
+                    <label for="inputPassword" class="input">นามสกุลผู้จัดการ</label>
+                </div>
+                <div class="row justify-content-end mr-5 mb-3">
+                    <label for="inputPassword" class="input">ตำแหน่ง</label>
+                </div>
+                <div class="row justify-content-end mr-5 mb-3">
+                    <label for="inputPassword" class="input">เบอร์ติดต่อ</label>
+                </div>
+            </div>
+            <div class="form-group col-5 ml-auto">
+                <div class="row mb-3">
+                    <div class="col-10 mb-2">
+                        <input class="form-control" type="text" name="manag_fname">
+                    </div>
+                    <div class="col-10 mb-2">
+                        <input class="form-control" type="text" name="manag_lname">
+                    </div>
+                    <div class="col-10 mb-2">
+                        <input class="form-control" type="text" name="manag_level">
+                    </div>
+                    <div class="col-10">
+                        <input class="form-control" type="text" name="manag_phone">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-outline-light w-25 mb-4" type="submit">Confirm</button>
+</form>
+{% endblock sidebar %}
